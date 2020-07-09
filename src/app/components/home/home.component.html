@@ -1,0 +1,326 @@
+<div id="overlayer"></div>
+<div class="loader">
+  <div class="spinner-border text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div class="site-wrap">
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+  <nav
+    class="navbar site-navbar js-sticky-header navbar-expand-lg navbar-light pt-3"
+  >
+    <div class="container pl-0 pr-0">
+      <a href="/" class="text-black logoHead h3 mb-0">
+        Covid-19 Stats
+        <span class="text-primary"></span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul
+          class="navbar-nav mr-auto justify-content-end navLinkStyle"
+          style="width: 100%;"
+        >
+          <li data-target="#navbarSupportedContent" data-toggle="collapse">
+            <a (click)="scrollto('home')" class="nav-link">Home</a>
+          </li>
+          <li data-target="#navbarSupportedContent" data-toggle="collapse">
+            <a (click)="scrollto('global')" class="nav-link">Global</a>
+          </li>
+          <!-- <li data-target="#navbarSupportedContent" data-toggle="collapse">
+            <a (click)="scrollto('india')" class="nav-link">India</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="site-blocks-cover" style="overflow: hidden;" id="home">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div
+          class="col-md-12"
+          style="position: relative;"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <img
+            src="assets/images/undraw_investing_7u74.svg"
+            alt="Image"
+            class="img-fluid img-absolute"
+          />
+
+          <div class="row mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-6 mr-auto">
+              <p class="headText">
+                Every stat you want to know about the coronavirus outbreak
+              </p>
+              <div class="displayHide">
+                <a
+                  (click)="scrollto('global')"
+                  class="btn btn-primary mr-2 mb-2"
+                  >Global</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="global">
+    <div class="container mt-5">
+      <div
+        class="row mb- justify-content-center text-center"
+        data-aos="fade-up"
+      >
+        <div class="col-7 text-center mb-">
+          <h2 class="section-title">Global Metrics</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="pb-4 pt-0">
+      <div class="container" data-aos="fade-up">
+        <p-table
+          #dt
+          [columns]="cols"
+          [value]="countryStat"
+          [responsive]="true"
+          [scrollable]="true"
+          scrollHeight="500px"
+          [loading]="loading"
+        >
+          <ng-template pTemplate="caption">
+            <div class="mb-2 globalSearch">
+              <div class="form__group field">
+                <input
+                  type="input"
+                  class="form__field"
+                  placeholder="Search Country"
+                  name="name"
+                  id="name"
+                  (input)="dt.filterGlobal($event.target.value, 'contains')"
+                />
+                <label for="name" class="form__label">Search Country</label>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th *ngFor="let col of columns">
+                {{ col.header }}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td class="countryGroup" *ngFor="let col of columns">
+                <span class="ui-column-title">{{ col.header }}</span>
+                <span class="ui-g">
+                  {{ rowData[col.field] }}
+                </span>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-big">
+    <div class="container">
+      <div class="row mb-5 site-section">
+        <div class="col-lg-7" data-aos="fade-right">
+          <img
+            src="assets/images/undraw_gift_card_6ekc.svg"
+            alt="Image"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-lg-5 pl-lg-5 ml-auto mt-md-5">
+          <h2 class="text-black">Communicate and gather feedback</h2>
+
+          <div class="author-box" data-aos="fade-left">
+            <div class="d-flex mb-4">
+              <div class="mr-3">
+                <img
+                  src="assets/images/shubham1.jpg"
+                  alt="Image"
+                  class="img-fluid rounded-circle"
+                />
+              </div>
+              <div class="mr-auto text-black">
+                <strong class="font-weight-bold mb-0">Shubham Mankar</strong>
+                <br />
+               UI Developer
+              </div>
+            </div>
+            <blockquote>
+              &ldquo;Strong creative and analytical skills. ... Motivated designer and developer with experience creating custom websites through Angular 2+, HTML5,Bootstrap, CSS.&rdquo;
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 row mb-5 site-section">
+        <div class="col-lg-7 order-1 order-lg-2" data-aos="fade-left">
+          <img
+            src="assets/images/undraw_metrics_gtu7.svg"
+            alt="Image"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-lg-5 pr-lg-5 mr-auto mt-5 order-2 order-lg-1">
+          <h2 class="text-black">World wide C-19.</h2>
+          <p class="mb-4">
+            Globally, the novel coronavirus has infected over 12 million and killed over 5.45 lakh. The United States continued to remain the worst affected followed by Brazil and India. Dr Michael Ryan, emergencies chief of the WHO, said the rise in cases was not due to widespread testing, but because the epidemic was “accelerating”.
+          </p>
+
+          <div class="author-box" data-aos="fade-right">
+            <div class="d-flex mb-4">
+              <div class="mr-3">
+                <img
+                  src="assets/images/c-19.jpg"
+                  alt="Image"
+                  class="img-fluid rounded-circle"
+                />
+              </div>
+            </div>
+            <blockquote>
+              &ldquo;Globally, the novel coronavirus has infected over 12 million and killed over 5.45 lakh. The United States continued to remain the worst affected followed by Brazil and India. Dr Michael Ryan, emergencies chief of the WHO, said the rise in cases was not due to widespread testing, but because the epidemic was “accelerating”.&rdquo;
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5 site-section">
+        <div class="col-lg-7" data-aos="fade-right">
+          <img
+            src="assets/images/undraw_gift_card_6ekc.svg"
+            alt="Image"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-lg-5 pl-lg-5 ml-auto mt-md-5">
+          <h2 class="text-black">Communicate and gather feedback</h2>
+
+
+          <div class="author-box" data-aos="fade-left">
+            <div class="d-flex mb-4">
+              <div class="mr-3">
+                <img
+                  src="assets/images/shubham1.jpg"
+                  alt="Image"
+                  class="img-fluid rounded-circle"
+                />
+              </div>
+              <div class="mr-auto text-black">
+                <strong class="font-weight-bold mb-0">Shubham Mankar</strong>
+                <br />
+               UI Developer
+              </div>
+            </div>
+            <blockquote>
+              &ldquo;Strong creative and analytical skills. ... Motivated designer and developer with experience creating custom websites through Angular 2+, HTML5,Bootstrap, CSS.&rdquo;
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 row mb-5 site-section">
+        <div class="col-lg-7 order-1 order-lg-2" data-aos="fade-left">
+          <img
+            src="assets/images/undraw_metrics_gtu7.svg"
+            alt="Image"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-lg-5 pr-lg-5 mr-auto mt-5 order-2 order-lg-1">
+          <h2 class="text-black">Communicate and gather feedback</h2>
+          <p class="mb-4">
+            Strong creative and analytical skills. ... Motivated designer and developer with experience creating custom websites through Angular 2+, HTML5,Bootstrap, CSS.
+          </p>
+
+
+          <div class="author-box" data-aos="fade-left">
+            <div class="d-flex mb-4">
+              <div class="mr-3">
+                <img
+                  src="assets/images/shubham1.jpg"
+                  alt="Image"
+                  class="img-fluid rounded-circle"
+                />
+              </div>
+              <div class="mr-auto text-black">
+                <strong class="font-weight-bold mb-0">Shubham Mankar</strong>
+                <br />
+               UI Developer
+              </div>
+            </div>
+            <blockquote>
+              &ldquo;Strong creative and analytical skills. ... Motivated designer and developer with experience creating custom websites through Angular 2+, HTML5,Bootstrap, CSS.&rdquo;
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section bg-light" id="about-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="section-title mb-3">About Us</h2>
+        </div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <img
+            src="assets/images/undraw_bookmarks_r6up.svg"
+            alt="Image"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-lg-5 ml-auto pl-lg-5">
+          <h2 class="text-black mb-4 h3 font-weight-bold">Our Mission</h2>
+          <p class="mb-4">
+            Anyone who is sick — even if they don't know for sure they have coronavirus (COVID-19) — should stay home unless they need medical care. This helps prevent the illness from spreading to other people.
+          </p>
+          <ul class="ul-check mb-5 list-unstyled success">
+            <li>As much as possible, keep away from other people and pets in your home.</li>
+            <li>If possible, stay in a bedroom and use a bathroom separate from other people in the home.</li>
+            <li>Use separate bedding and towels and not share these with other household members.</li>
+          </ul>
+          <p> <a
+            (click)="scrollto('global')"
+            class="btn btn-primary mr-2 mb-2"
+            >Global</a
+          ></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

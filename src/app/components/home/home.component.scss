@@ -1,0 +1,176 @@
+// global search
+.globalSearch {
+  $primary: #0e63c488;
+  $secondary: #ffffff;
+  $gray: #9b9b9b;
+  .form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 98%;
+  }
+
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid $gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #726c6c;
+    padding: 7px 0;
+    background: transparent;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:placeholder-shown ~ .form__label {
+      font-size: 1.3rem;
+      cursor: text;
+      top: 20px;
+    }
+  }
+
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $gray;
+  }
+
+  .form__field {
+    ~ .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: $primary;
+      font-weight: 700;
+    }
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, $primary, $secondary);
+    border-image-slice: 1;
+  }
+  /* reset input */
+  .form__field {
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
+  }
+  /* demo */
+}
+
+//global search
+
+.text-uppercase {
+  text-transform: uppercase;
+  align-content: center;
+}
+
+tr td:not(:first-child) {
+  text-align: left;
+}
+tr th {
+  text-align: left;
+  text-transform: uppercase;
+  background-color: #e2e2e2;
+}
+
+@media only screen and (max-width: 600px) {
+  tr td:not(:first-child) {
+    text-align: left;
+  }
+  tr th {
+    text-align: left;
+    text-transform: uppercase;
+    background-color: #e2e2e2;
+  }
+}
+
+::ng-deep body .ui-table .ui-table-caption,
+body .ui-table .ui-table-summary {
+  background-color: transparent;
+  color: #333333;
+  border: none;
+  padding: 0.571em 0em;
+  text-align: center;
+}
+
+::ng-deep body .ui-table .ui-table-tbody > tr:not(:first-child) {
+  background-color: #ffffff;
+  color: #333333;
+  border-bottom: 1px solid #9f9696;
+  border-top: 1px solid #9f9696;
+}
+
+::ng-deep .ui-table-loading-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  margin-top: 15%;
+  margin-left: -1em;
+}
+
+.unit-4 {
+  padding: 30px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+  position: relative;
+  top: 0;
+  margin-bottom: 0 !important;
+  text-align: center;
+  padding-top: 50px;
+&:hover{
+  background: #4285f4;
+}
+}
+
+.logoHead{
+  &:hover,:focus{
+    text-decoration: none;
+    color: #4285f4 !important;
+    transition: 0.2s ease-in-out ;
+  }
+}
+
+.headText{
+  font-size: 2.5rem;
+  color: black;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.navLinkStyle{
+  li a{
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: black;
+    &:hover{
+      color: #4285f4 ;
+    }
+  }
+}
+
+.navbar-toggler{
+  border: none !important;
+  &:focus{
+    outline: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .displayHide {
+    display: none;
+  }
+}
